@@ -1,0 +1,24 @@
+<app-header (messageEvent)="receiveMessage($event)"></app-header>
+<div class="container" style="width: 400px; margin-top: 20px;">
+<table id="conversation" class="table table-striped" style="margin-top: 20px;">
+  <thead>
+    <tr>
+      <th>list user</th>
+
+      
+    </tr>
+  </thead>
+  
+  <tbody *ngFor="let item of listuser">
+    <tr>
+        
+      <td *ngIf=" username != item.nom"><a routerLink="/chat/{{item.nom}}">{{item.nom}} </a></td>
+    </tr>
+  </tbody>
+  <tbody *ngFor="let item of greetings">
+    <tr>
+      <td *ngIf=" username != item.nom" ><a routerLink="/chat/{{item.nom}}">{{item.nom}} </a></td>
+    </tr>
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>Spring Boot WebSocket</title>
+  <base href="/">
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+ 
+<body>
+  <div style="color: blue; text-align: center">
+    <h1>{{title}}</h1>
+    <h3>{{description}}</h3>
+  </div>
+ 
+  <div class="container" style="width: 400px; margin-top: 20px;">
+ 
+    
+ 
+    <form class="form-inline" style="margin-top: 20px;">
+      <div class="form-group">
+        <label for="name">User's Name:</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="name" />
+      </div>
+      <button id="send" class="btn btn-default" type="button" (click)="sendName()">Send</button>
+    </form>
+ 
+    <table id="conversation" class="table table-striped" style="margin-top: 20px;">
+      <thead>
+        <tr>
+          <th>Greetings</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let list of listmessage">
+        <tr>
+          <td >{{list.fromuser}} {{list.message}}    {{list.touser}}</td>
+        </tr>
+      </tbody>
+      <tbody *ngFor="let item of greetings">
+        <tr>
+          <td *ngIf=" username == item.fromuser || username == item.touser " >{{item.fromuser}} {{item.message}}    {{item.touser}}</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+  </div>
+</body>
+ 
+</html>
